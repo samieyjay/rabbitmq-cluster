@@ -1,0 +1,51 @@
+version: "3"
+services:
+  node1:
+    image: rabbitmq:3.7.14-management
+    hostname: node1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secret"
+      RABBITMQ_NODENAME: node1
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq.config
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+    ports:
+      - "4369:4369"
+      - "5671:5671"
+      - "5672:5672"
+      - "15671:15671"
+      - "15672:15672"
+      - "25672:25672"
+    networks:
+      - cluster-network
+
+  node2:
+    image: rabbitmq:3.7.14-management
+    hostname: node2
+    depends_on:
+      - node1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secret"
+      RABBITMQ_NODENAME: node2
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq.config
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+    networks:
+      - cluster-network
+
+  node3:
+    image: rabbitmq:3.7.14-management
+    hostname: node3
+    depends_on:
+      - node1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secret"
+      RABBITMQ_NODENAME: node3
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq.config
+    volumes:
+      - "./rabbitmq.config:/etc/rabbitmq/rabbitmq.config"
+    networks:
+      - cluster-network
+
+networks:
+  cluster-network:

@@ -1,0 +1,19 @@
+[
+        { rabbit, [
+                {cluster_nodes, {[ 'node1@node1' ], disc}},
+    {tcp_listen_options, [binary, {backlog, 1024}, {nodelay, true}, {keepalive, true} ]},
+    {vm_memory_high_watermark, 0.6},
+                { loopback_users, [ ] },
+                { tcp_listeners, [ 5672 ] },
+                { ssl_listeners, [ ] },
+                { default_user, <<"aimbrainadmin">> },
+                { default_pass, <<"aimpass12345">> },
+                { hipe_compile, false }
+        ] },
+
+        { rabbitmq_management, [ { listener, [
+                { port, 15672 },
+                { ssl, false }
+        ] }
+        ] }
+].
