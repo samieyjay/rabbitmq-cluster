@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu/xenial64"
 
-  # Create a forwarded port mapping which allows access to a specific port
+  # Create a forwarded port mapping which allows access to a port 15672 on the host machine
   config.vm.network "forwarded_port", guest: 15672, host: 15672
 
   config.vm.provision "docker"

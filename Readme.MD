@@ -37,9 +37,9 @@ A volume is shared across all nodes to ensure all containers are deployed using 
 
 3 environment variables are deployed as part of the containers; RABBITMQ_ERLANG_COOKIE, RABBITMQ_NODENAME, RABBITMQ_CONFIG_FILE
 
-RABBITMQ_ERLANG_COOKIE is shared across all nodes to allow communications between the nodes
-RABBITMQ_NODENAME identifies the node
-RABBITMQ_CONFIG_FILE is required to override the location of main RabbitMQ config file location 
+- RABBITMQ_ERLANG_COOKIE is shared across all nodes to allow communications between the nodes
+- RABBITMQ_NODENAME identifies the node
+- RABBITMQ_CONFIG_FILE is required to override the location of main RabbitMQ config file location 
 
 ## rabbitmq.config
 
