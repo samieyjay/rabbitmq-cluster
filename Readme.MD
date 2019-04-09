@@ -1,6 +1,6 @@
 # How to deploy multinode RabbitMQ Cluster using Vagrant and Docker
 
-** Technologies used; **
+**Technologies used;**
 
 - Virtualbox
 - Vagrant
@@ -9,7 +9,7 @@
 - RabbitMQ
 - Ubuntu/Xenial64
 
-** File included; **
+**File included;**
 
 - Vagrantfile 
 - docker-compose.yml
@@ -18,8 +18,11 @@
 ## Vagrantfile 
 
 STEP 1: Provision base box - Ubuntu/Xenial64
+
 STEP 2: Provision Docker within the base box
+
 STEP 3: Copy files required by Docker Compose to the box
+
 STEP 4: Install Docker Compose using $script and run docker-compose to deploy the cluster
 
 ## docker-compose.yml
@@ -41,5 +44,3 @@ RABBITMQ_CONFIG_FILE is required to override the location of main RabbitMQ confi
 ## rabbitmq.config
 
 The cluster uses classic config format (rabbitmq.confiq) which contains configuration settings such as default username and password (plain text), cluster_nodes for auto clustering, http port listener for RabbitMQ management plugin
-
-
